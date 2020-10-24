@@ -1,4 +1,4 @@
-package simple.example.kocheng;
+package simple.example.hewanpedia;
 
 import android.content.Context;
 

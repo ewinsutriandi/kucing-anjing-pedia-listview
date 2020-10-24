@@ -1,5 +1,6 @@
-package simple.example.kocheng;
+package simple.example.hewanpedia;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -11,12 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
-import simple.example.kocheng.model.Anjing;
+import simple.example.hewanpedia.model.Hewan;
 
-public class AnjingActivity extends AppCompatActivity {
+public class GaleriActivity extends AppCompatActivity {
 
-    List<Anjing> anjings;
+    List<Hewan> hewans;
     int indeksTampil = 0;
+    String jenisHewan;
     Button btnPertama,btnTerakhir,btnSebelumnya,btnBerikutnya;
     TextView txJenis,txAsal,txDeskripsi,txJudul;
     ImageView ivFotoHewan;
@@ -24,7 +26,9 @@ public class AnjingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil_ras);
-        anjings = DataProvider.getAllAnjings(this);
+        Intent intent = getIntent();
+        jenisHewan = intent.getStringExtra(MainActivity.JENIS_GALERI_KEY);
+        hewans = DataProvider.getHewansByTipe(this,jenisHewan);
         inisialisasiView();
         tampilkanProfil();
     }
@@ -35,10 +39,10 @@ public class AnjingActivity extends AppCompatActivity {
         btnBerikutnya = findViewById(R.id.btnBerikutnya);
         btnTerakhir = findViewById(R.id.btnTerakhir);
 
-        btnPertama.setOnClickListener(view -> anjingPertama());
-        btnTerakhir.setOnClickListener(view -> anjingTerakhir());
-        btnSebelumnya.setOnClickListener(view -> anjingSebelumnya());
-        btnBerikutnya.setOnClickListener(view -> anjingBerikutnya());
+        btnPertama.setOnClickListener(view -> hewanPertama());
+        btnTerakhir.setOnClickListener(view -> hewanTerakhir());
+        btnSebelumnya.setOnClickListener(view -> hewanSebelumnya());
+        btnBerikutnya.setOnClickListener(view -> hewanBerikutnya());
 
         txJenis = findViewById(R.id.txJenis);
         txAsal = findViewById(R.id.txAsal);
@@ -46,12 +50,12 @@ public class AnjingActivity extends AppCompatActivity {
         ivFotoHewan = findViewById(R.id.gambarHewan);
 
         txJudul = findViewById(R.id.txJudul);
-        txJudul.setText("Ras Anjing");
+        txJudul.setText("Berbagai Macam Ras "+jenisHewan);
     }
 
 
     private void tampilkanProfil() {
-        Anjing k = anjings.get(indeksTampil);
+        Hewan k = hewans.get(indeksTampil);
         Log.d("ANJING","Menampilkan anjing "+k.getJenis());
         txJenis.setText(k.getJenis());
         txAsal.setText(k.getAsal());
@@ -59,10 +63,10 @@ public class AnjingActivity extends AppCompatActivity {
         ivFotoHewan.setImageDrawable(this.getDrawable(k.getDrawableRes()));
     }
 
-    private void anjingPertama() {
+    private void hewanPertama() {
         int posAwal = 0;
         if (indeksTampil == posAwal) {
-            Toast.makeText(this,"Sudah di posisi anjing pertama",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Sudah di posisi pertama",Toast.LENGTH_SHORT).show();
             return;
         } else {
             indeksTampil = posAwal;
@@ -70,10 +74,10 @@ public class AnjingActivity extends AppCompatActivity {
         }
     }
 
-    private void anjingTerakhir() {
-        int posAkhir = anjings.size() - 1;
+    private void hewanTerakhir() {
+        int posAkhir = hewans.size() - 1;
         if (indeksTampil == posAkhir) {
-            Toast.makeText(this,"Sudah di posisi anjing terakhir",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Sudah di posisi terakhir",Toast.LENGTH_SHORT).show();
             return;
         } else {
             indeksTampil = posAkhir;
@@ -81,9 +85,9 @@ public class AnjingActivity extends AppCompatActivity {
         }
     }
 
-    private void anjingBerikutnya() {
-        if (indeksTampil == anjings.size() - 1) {
-            Toast.makeText(this,"Sudah di posisi anjing terakhir",Toast.LENGTH_SHORT).show();
+    private void hewanBerikutnya() {
+        if (indeksTampil == hewans.size() - 1) {
+            Toast.makeText(this,"Sudah di posisi terakhir",Toast.LENGTH_SHORT).show();
             return;
         } else {
             indeksTampil++;
@@ -91,9 +95,9 @@ public class AnjingActivity extends AppCompatActivity {
         }
     }
 
-    private void anjingSebelumnya() {
+    private void hewanSebelumnya() {
         if (indeksTampil == 0) {
-            Toast.makeText(this,"Sudah di posisi anjing pertama",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Sudah di posisi pertama",Toast.LENGTH_SHORT).show();
             return;
         } else {
             indeksTampil--;

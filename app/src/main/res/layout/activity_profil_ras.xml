@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Widget.AppCompat.Button.Small"
-            android:text="first"
+            android:text="|&lt;"
             android:layout_margin="4dp"
             />
         <Button
@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Widget.AppCompat.Button.Small"
-            android:text="Prev"
+            android:text="&lt;"
             android:layout_margin="4dp"
             />
         <Button
@@ -79,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Widget.AppCompat.Button.Small"
-            android:text="next"
+            android:text="&gt;"
             android:layout_margin="4dp"
             />
         <Button
@@ -87,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Widget.AppCompat.Button.Small"
-            android:text="Last"
+            android:text="&gt;|"
             android:layout_margin="4dp"
             />
     </LinearLayout>

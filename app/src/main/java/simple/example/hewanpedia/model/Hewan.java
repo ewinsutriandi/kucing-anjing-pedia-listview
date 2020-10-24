@@ -1,13 +1,15 @@
-package simple.example.kocheng.model;
+package simple.example.hewanpedia.model;
 
-public class Anjing {
+public class Hewan {
     private String jenis;
+    private String ras;
     private String asal;
     private String deskripsi;
     private int drawableRes;
 
-    public Anjing(String jenis, String asal, String deskripsi, int drawableRes) {
+    public Hewan(String jenis, String ras, String asal, String deskripsi, int drawableRes) {
         this.jenis = jenis;
+        this.ras = ras;
         this.asal = asal;
         this.deskripsi = deskripsi;
         this.drawableRes = drawableRes;
@@ -19,6 +21,14 @@ public class Anjing {
 
     public void setJenis(String jenis) {
         this.jenis = jenis;
+    }
+
+    public String getRas() {
+        return ras;
+    }
+
+    public void setRas(String ras) {
+        this.ras = ras;
     }
 
     public String getAsal() {
@@ -44,5 +54,4 @@ public class Anjing {
     public void setDrawableRes(int drawableRes) {
         this.drawableRes = drawableRes;
     }
-
 }
