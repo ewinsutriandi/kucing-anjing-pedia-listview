@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void bukaGaleri(String jenisHewan) {
-        Log.d("MAIN","Buka activity kucing");
-        Intent intent = new Intent(this, GaleriActivity.class);
+        Log.d("MAIN","Buka activity galeri");
+        Intent intent = new Intent(this, DaftarHewanActivity.class);
         intent.putExtra(JENIS_GALERI_KEY, jenisHewan);
         startActivity(intent);
     }

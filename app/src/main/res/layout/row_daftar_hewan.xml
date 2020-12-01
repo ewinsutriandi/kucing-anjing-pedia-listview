@@ -1,0 +1,41 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingBottom="4dp">
+
+    <ImageView
+        android:id="@+id/row_image_hewan"
+        android:layout_alignParentRight="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/dog_kintamani"
+        />
+
+    <LinearLayout
+        android:layout_toLeftOf="@id/row_image_hewan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/row_text_jenis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:text="Kintamani"/>
+        <TextView
+            android:id="@+id/row_text_asal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Bali"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

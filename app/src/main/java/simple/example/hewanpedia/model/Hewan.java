@@ -1,6 +1,8 @@
 package simple.example.hewanpedia.model;
 
-public class Hewan {
+import java.io.Serializable;
+
+public class Hewan implements Serializable {
     private String jenis;
     private String ras;
     private String asal;

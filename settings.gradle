@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "CatDog Refactored"
+rootProject.name = "CatDog Listview"
