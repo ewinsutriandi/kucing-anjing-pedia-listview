@@ -28,10 +28,10 @@ public class DaftarHewanActivity extends AppCompatActivity {
         TextView txJudul = findViewById(R.id.text_title_daftar);
         txJudul.setText("DAFTAR BERBAGAI RAS "+jenisHewan.toUpperCase());
         hewans = DataProvider.getHewansByTipe(this,jenisHewan);
-        setupRecyclerView();
+        setupListView();
     }
 
-    private void setupRecyclerView() {
+    private void setupListView() {
         listView = findViewById(R.id.listview_daftar_hewan);
         DaftarHewanAdapter adapter = new DaftarHewanAdapter(this,hewans);
         listView.setAdapter(adapter);
